@@ -1,3 +1,42 @@
 spring:
   application:
     name: springbootservicetemplate
+
+  config:
+    import: optional:vault://
+  cloud:
+    vault:
+      enabled: ${vault-enabled:true}
+      uri: ${vault.uri:http://localhost:8201}
+      token: ${vault.token:00000000-0000-0000-0000-000000000000}
+      authentication: APPROLE
+      fail-fast: true
+      kv:
+        enabled: ${vault.kv.enabled:true}
+        backend: ${vault.kv.backend:secret}
+      app-role:
+        role-id: ${vault-role-id}
+        secret-id: ${vault-secret-id}
+        role: ${vault-approle-path}
+  servlet:
+    multipart:
+      enabled: false
+
+  datasource:
+    url: ${db-url:jdbc:postgresql://localhost:5432/spring-boot-service-template}
+    username: ${vault.db.username:dbuser}
+    password: ${vault.db.password:dbpass}
+    hikari:
+      pool-name: SpringBootServiceTemplatePool
+      maximum-pool-size: ${hikari.maximum-pool-size:20}
+      minimum-idle: ${hikari.minimum-idle:5}
+      idle-timeout: ${hikari.idle-timeout:60000}
+      connection-timeout: ${hikari.connection-timeout:20000}
+      leak-detection-threshold: ${hikari.leak-detection-threshold:0}
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: true
+  jpa:
+    show-sql: ${jpa.show-sql:false}
+    hibernate:
+      ddl-auto: none

@@ -1,0 +1,33 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SpringBootServiceTemplate" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <envs>
+      <env name="DB_URL" value="jdbc:postgresql://localhost:5432/spring-boot-service-template" />
+      <env name="HIKARI_CONNECTION_TIMEOUT" value="20000" />
+      <env name="HIKARI_IDLE_TIMEOUT" value="60000" />
+      <env name="HIKARI_LEAK_DETECTION_THRESHOLD" value="0" />
+      <env name="HIKARI_MAXIMUM_POOL_SIZE" value="20" />
+      <env name="HIKARI_MINIMUM_IDLE" value="5" />
+      <env name="VAULT_APPROLE_PATH" value="spring-boot-service-template" />
+      <env name="VAULT_DB_PASSWORD" value="dbpass" />
+      <env name="VAULT_DB_USERNAME" value="dbuser" />
+      <env name="VAULT_KV_BACKEND" value="secret" />
+      <env name="VAULT_KV_ENABLED" value="true" />
+      <env name="VAULT_ROLE_ID" value="db02de05-fa39-4855-059b-67221c5c2f63" />
+      <env name="VAULT_SECRET_ID" value="6a174c20-f6de-a53c-74d2-6018fcceff64" />
+      <env name="VAULT_TOKEN" value="00000000-0000-0000-0000-000000000000" />
+      <env name="VAULT_URI" value="http://localhost:8201" />
+      <env name="VAULT_ENABLED" value="true" />
+    </envs>
+    <module name="springbootservicetemplate.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.damrin.springbootservicetemplate.SpringBootServiceTemplate" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="org.damrin.springbootservicetemplate.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
